@@ -1,6 +1,6 @@
-# loginapp
+# ShopsMart Mobile Application
 
-A new Flutter project.
+This project is build to fulfill one of assessment (ICT725 User Experience and Mobile Application Development) in King's Own Institute Sydney, which require student to build a prototype in Figma and build the application using Flutter.
 
 ## Getting Started
 
@@ -14,4 +14,7 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
-# flutter_shopsmart
+
+## flutter_shopsmart
+
+This application developed only on front-end without backend
