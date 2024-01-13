@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:loginapp/screens/home_screen.dart';
+import 'package:loginapp/screens/login.dart';
 import 'package:loginapp/screens/signUp.dart';
 
 void main() {
@@ -81,6 +82,12 @@ class _MyHomePageState extends State<MyHomePage> {
             child: const Text("Home"),
             onPressed: () {
               Get.to(const HomeScreen());
+            },
+          ),
+          ElevatedButton(
+            child: const Text("Login"),
+            onPressed: () {
+              Get.to(const Login());
             },
           ),
         ]),
