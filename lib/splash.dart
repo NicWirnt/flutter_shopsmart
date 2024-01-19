@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:loginapp/screens/front_screen.dart';
 import 'package:loginapp/screens/home_screen.dart';
-import 'package:loginapp/slide_screen.dart';
+import 'package:loginapp/slide_screens/slide_screen.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});

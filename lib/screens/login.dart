@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:get/get_navigation/src/routes/default_transitions.dart';
 import 'package:loginapp/screens/forgot_password.dart';
 import 'package:loginapp/screens/front_screen.dart';
+import 'package:loginapp/screens/home_screen.dart';
 import 'package:loginapp/screens/signUp.dart';
 
 class Login extends StatefulWidget {
@@ -83,7 +84,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                         MaterialStateProperty.all(Colors.orangeAccent),
                   ),
                   onPressed: () {
-                    Get.to(const FrontScreen());
+                    Get.to(const HomeScreen());
                   },
                   child: const Text(
                     "Login",

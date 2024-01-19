@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:infinite_carousel/infinite_carousel.dart';
 import 'package:loginapp/screens/login.dart';
 import 'package:loginapp/screens/signUp.dart';
+import 'package:loginapp/slide_screens/slide_screen2.dart';
+import 'package:loginapp/slide_screens/slide_screen3.dart';
 
 class SlideScreen extends StatefulWidget {
   const SlideScreen({super.key});
@@ -10,6 +13,14 @@ class SlideScreen extends StatefulWidget {
 }
 
 class _SlideScreenState extends State<SlideScreen> {
+  List<String> imagePath = [
+    "assets/images/1.jpg",
+    "assets/images/2.jpg",
+    "assets/images/3.jpg",
+  ];
+
+  int _selectedIndex = 0;
+
   void _navigateButton(BuildContext context, String navigateTo) {
     if (navigateTo == "login") {
       Navigator.push(
@@ -20,19 +31,37 @@ class _SlideScreenState extends State<SlideScreen> {
     }
   }
 
+  void _navigateScreen(BuildContext context, int screen) {
+    if (screen == 1) {
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const SlideScreen()));
+    } else if (screen == 2) {
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const SlideScreen1()));
+    } else if (screen == 3) {
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const SlideScreen3()));
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         height: double.infinity,
         width: double.infinity,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/images/1.jpg"),
+            image: AssetImage(imagePath[_selectedIndex]),
             fit: BoxFit.cover,
-            opacity: 0.3,
+            opacity: 0.7,
           ),
-          color: Color.fromARGB(250, 0, 0, 0),
+          color: const Color.fromARGB(250, 0, 0, 0),
         ),
         child: Padding(
           padding: const EdgeInsets.only(left: 32, right: 32),
@@ -51,7 +80,7 @@ class _SlideScreenState extends State<SlideScreen> {
                 ),
               ),
               const SizedBox(
-                height: 200,
+                height: 150,
               ),
               const Text(
                 "Grab Your",
@@ -74,8 +103,81 @@ class _SlideScreenState extends State<SlideScreen> {
                     fontSize: 20,
                     color: Colors.white,
                   )),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    height: 5,
+                    width: 20,
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        shape: MaterialStatePropertyAll(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                        ),
+                        backgroundColor: MaterialStateColor.resolveWith(
+                          (states) => Colors.grey.shade500,
+                        ),
+                      ),
+                      onPressed: () {
+                        _navigateScreen(context, 1);
+                      },
+                      child: const Text(""),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                    height: 10,
+                  ),
+                  SizedBox(
+                    height: 5,
+                    width: 20,
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        shape: MaterialStatePropertyAll(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                        ),
+                        backgroundColor: MaterialStateColor.resolveWith(
+                          (states) => Colors.white,
+                        ),
+                      ),
+                      onPressed: () {
+                        _navigateScreen(context, 2);
+                      },
+                      child: const Text(""),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                    height: 10,
+                  ),
+                  SizedBox(
+                    height: 5,
+                    width: 20,
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        shape: MaterialStatePropertyAll(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                        ),
+                        backgroundColor: MaterialStateColor.resolveWith(
+                          (states) => Colors.white,
+                        ),
+                      ),
+                      onPressed: () {
+                        _navigateScreen(context, 3);
+                      },
+                      child: const Text(""),
+                    ),
+                  ),
+                ],
+              ),
               const SizedBox(
-                height: 56,
+                height: 50,
               ),
               Row(
                 children: [
