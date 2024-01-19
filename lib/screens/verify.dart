@@ -1,26 +1,24 @@
-import 'dart:ffi';
+import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import 'package:loginapp/screens/verify.dart';
-
-class ForgotPassword extends StatefulWidget {
-  const ForgotPassword({super.key});
+class Verify extends StatefulWidget {
+  const Verify({super.key});
 
   @override
-  State<ForgotPassword> createState() => _ForgotPasswordState();
+  State<Verify> createState() => _VerifyState();
 }
 
 String getText() {
   return "Pressed";
 }
 
-class _ForgotPasswordState extends State<ForgotPassword> {
+class _VerifyState extends State<Verify> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Forgot Password"),
+        title: const Text("Verify"),
       ),
       body: const Padding(
         padding: EdgeInsets.all(8.0),
@@ -28,21 +26,21 @@ class _ForgotPasswordState extends State<ForgotPassword> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Forgot",
+              "Verifying",
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
               ),
             ),
             Text(
-              "Password",
+              "Your Email",
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
               ),
             ),
             Text(
-              "Enter your email and we will send you instruction on reset password",
+              "We've sent your verification code to A*********@gmail.com",
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w500,
@@ -52,7 +50,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               height: 30,
             ),
             TextField(
-              decoration: InputDecoration(label: Text("Email")),
+              decoration: InputDecoration(label: Text("Enter Code")),
             ),
             SizedBox(
               height: 20,
@@ -65,22 +63,24 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 ),
                 onPressed: getText,
                 child: Text(
-                  "Forgot Password",
+                  "Verify",
                   style: TextStyle(color: Colors.black),
                 ),
               ),
             ),
+            SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Resend Code"),
+                Text("04.35"),
+              ],
+            )
           ],
         ),
       ),
-    );
-  }
-
-  void navigateToOtherPage(BuildContext context) {
-    // Replace 'YourOtherPage()' with the page you want to navigate to
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const Verify()),
     );
   }
 }

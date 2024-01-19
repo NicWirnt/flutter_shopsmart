@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_navigation/src/routes/default_transitions.dart';
 import 'package:loginapp/screens/forgot_password.dart';
+import 'package:loginapp/screens/front_screen.dart';
 import 'package:loginapp/screens/signUp.dart';
 
 class Login extends StatefulWidget {
@@ -56,20 +58,20 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                 height: 16,
               ),
               TextButton(
-                onPressed: () {
-                  // Handle the navigation to the forgot password page here
-                  Get.to(const ForgotPassword());
-                },
-                child: const Text(
-                  'Forgot Password',
-                  style: TextStyle(
-                    color: Colors.blue,
-
-                    // Change the color to your preference
-                    // You can customize other text styles here
+                  style: ButtonStyle(
+                    padding: MaterialStateProperty.all(
+                        const EdgeInsets.only(left: 3, right: 2)),
                   ),
-                ),
-              ),
+                  onPressed: () {
+                    Get.to(const ForgotPassword());
+                  },
+                  child: const Text(
+                    "Forgot Password",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  )),
               const SizedBox(
                 height: 32,
               ),
@@ -80,9 +82,11 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                     backgroundColor:
                         MaterialStateProperty.all(Colors.orangeAccent),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(const FrontScreen());
+                  },
                   child: const Text(
-                    "Sign Up",
+                    "Login",
                     style: TextStyle(color: Colors.white),
                   ),
                 ),

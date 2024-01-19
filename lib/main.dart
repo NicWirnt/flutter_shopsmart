@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:loginapp/screens/home_screen.dart';
 import 'package:loginapp/screens/login.dart';
 import 'package:loginapp/screens/signUp.dart';
+import 'package:loginapp/screens/verify.dart';
+import 'package:loginapp/splash.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
+      title: 'ShopsMart',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -35,7 +37,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.brown.shade300),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Counter'),
+      home: const Splash(),
+      // const MyHomePage(title: 'ShopsMart'),
     );
   }
 }
@@ -88,6 +91,12 @@ class _MyHomePageState extends State<MyHomePage> {
             child: const Text("Login"),
             onPressed: () {
               Get.to(const Login());
+            },
+          ),
+          ElevatedButton(
+            child: const Text("Verify"),
+            onPressed: () {
+              Get.to(const Verify());
             },
           ),
         ]),
