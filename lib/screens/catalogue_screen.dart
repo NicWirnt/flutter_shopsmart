@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:loginapp/controllers/catalogue_controller.dart';
+
+import '../models/product.dart';
 
 class Catalogue extends StatefulWidget {
   const Catalogue({super.key});
@@ -8,17 +12,7 @@ class Catalogue extends StatefulWidget {
 }
 
 class _CatalogueState extends State<Catalogue> {
-  List<Product> products = [
-    Product("A", "100", 'assets/images/veggies.png', "20"),
-    Product("A", "100", 'assets/images/veggies.png', "20"),
-    Product("A", "100", 'assets/images/veggies.png', "20"),
-    Product("A", "100", 'assets/images/veggies.png', "20"),
-    Product("A", "100", 'assets/images/veggies.png', "20"),
-    Product("A", "100", 'assets/images/veggies.png', "20"),
-    Product("A", "100", 'assets/images/veggies.png', "20"),
-    Product("A", "100", 'assets/images/veggies.png', "20"),
-    Product("A", "100", 'assets/images/veggies.png', "20"),
-  ];
+  CatalogueController catalogueC = Get.put(CatalogueController());
 
   List<String> menus = [
     "All",
@@ -77,9 +71,9 @@ class _CatalogueState extends State<Catalogue> {
           ListView.builder(
             physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
-            itemCount: products.length,
+            itemCount: catalogueC.products.length,
             itemBuilder: (context, index) {
-              Product currentProduct = products[index];
+              Product currentProduct = catalogueC.products[index];
               return ListTile(
                 leading: Image(image: AssetImage(currentProduct.path)),
                 title: Text(currentProduct.title),
@@ -87,9 +81,44 @@ class _CatalogueState extends State<Catalogue> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text("${currentProduct.weight}gr"),
-                    Text(currentProduct.price),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Woolies \$${currentProduct.priceWollies}"),
+                        const SizedBox(width: 4),
+                        Text("Coles \$${currentProduct.priceColes}"),
+                      ],
+                    )
                   ],
                 ),
+                trailing: PopupMenuButton(
+                  onSelected: (value) {
+                    if (value == 1) {
+                      catalogueC.addToCart(currentProduct);
+                    } else if (value == 2) {
+                      catalogueC.addToFavs(currentProduct);
+                    }
+                  },
+                  itemBuilder: (context) {
+                    return const [
+                      PopupMenuItem(
+                        value: 1,
+                        child: Text("Add to List"),
+                      ),
+                      PopupMenuItem(
+                        value: 2,
+                        child: Text("Add to Favs"),
+                      ),
+                    ];
+                  },
+                ),
+
+                //  IconButton(
+                //     onPressed: () {
+                //       catalogueC.addToCart(currentProduct);
+                //       print(catalogueC.cartItems);
+                //     },
+                //     icon: const Icon(Icons.add)),
               );
             },
           ),
@@ -97,14 +126,4 @@ class _CatalogueState extends State<Catalogue> {
       ),
     );
   }
-}
-
-/// Sample ordinal data type.
-class Product {
-  final String title;
-  final String price;
-  final String path;
-  final String weight;
-
-  Product(this.title, this.price, this.path, this.weight);
 }

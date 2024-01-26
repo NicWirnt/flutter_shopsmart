@@ -16,6 +16,7 @@ List<String> imagePath = [
   "assets/images/2.jpg",
   "assets/images/3.jpg",
 ];
+
 int _selectedIndex = 1;
 void _navigateButton(BuildContext context, String navigateTo) {
   if (navigateTo == "login") {
@@ -72,7 +73,7 @@ class _SlideScreen1State extends State<SlideScreen1> {
                 ),
               ),
               const SizedBox(
-                height: 150,
+                height: 300,
               ),
               const Text(
                 "Smart Shopping",

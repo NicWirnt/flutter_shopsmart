@@ -1,6 +1,7 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'package:loginapp/screens/verify.dart';
 
@@ -11,10 +12,6 @@ class ForgotPassword extends StatefulWidget {
   State<ForgotPassword> createState() => _ForgotPasswordState();
 }
 
-String getText() {
-  return "Pressed";
-}
-
 class _ForgotPasswordState extends State<ForgotPassword> {
   @override
   Widget build(BuildContext context) {
@@ -22,49 +19,51 @@ class _ForgotPasswordState extends State<ForgotPassword> {
       appBar: AppBar(
         title: const Text("Forgot Password"),
       ),
-      body: const Padding(
-        padding: EdgeInsets.all(8.0),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               "Forgot",
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Text(
+            const Text(
               "Password",
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Text(
+            const Text(
               "Enter your email and we will send you instruction on reset password",
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w500,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
-            TextField(
+            const TextField(
               decoration: InputDecoration(label: Text("Email")),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                style: ButtonStyle(
+                style: const ButtonStyle(
                   backgroundColor: MaterialStatePropertyAll(Colors.amber),
                 ),
-                onPressed: getText,
-                child: Text(
+                onPressed: () {
+                  Get.to(const Verify());
+                },
+                child: const Text(
                   "Forgot Password",
                   style: TextStyle(color: Colors.black),
                 ),

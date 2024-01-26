@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:infinite_carousel/infinite_carousel.dart';
 import 'package:loginapp/screens/login.dart';
 import 'package:loginapp/screens/signUp.dart';
 import 'package:loginapp/slide_screens/slide_screen2.dart';
@@ -20,6 +19,12 @@ class _SlideScreenState extends State<SlideScreen> {
   ];
 
   int _selectedIndex = 0;
+
+  // _navigateSlide() async {
+  //   await Future.delayed(const Duration(milliseconds: 5000), () {});
+  //   Navigator.pushReplacement(
+  //       context, MaterialPageRoute(builder: (context) => SlideScreen1()));
+  // }
 
   void _navigateButton(BuildContext context, String navigateTo) {
     if (navigateTo == "login") {
@@ -47,6 +52,7 @@ class _SlideScreenState extends State<SlideScreen> {
   @override
   void initState() {
     super.initState();
+    // _navigateSlide();
   }
 
   @override
@@ -80,7 +86,7 @@ class _SlideScreenState extends State<SlideScreen> {
                 ),
               ),
               const SizedBox(
-                height: 150,
+                height: 300,
               ),
               const Text(
                 "Grab Your",

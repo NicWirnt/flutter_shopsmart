@@ -72,7 +72,7 @@ class _SlideScreen3State extends State<SlideScreen3> {
                 ),
               ),
               const SizedBox(
-                height: 150,
+                height: 300,
               ),
               const Text(
                 "Shop Nearby",

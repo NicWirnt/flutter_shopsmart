@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:loginapp/screens/cart.dart';
 import 'package:loginapp/screens/catalogue_screen.dart';
 import 'package:loginapp/screens/front_screen.dart';
+import 'package:loginapp/screens/location_screen.dart';
+import 'package:loginapp/screens/profile.dart';
+
+import 'my_list.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -26,8 +31,12 @@ class _HomeScreenState extends State<HomeScreen> {
         label: "Location",
         backgroundColor: Colors.grey[200]),
     BottomNavigationBarItem(
-        icon: const Icon(Icons.list_alt_rounded),
+        icon: const Icon(Icons.location_on_outlined),
         label: "My List",
+        backgroundColor: Colors.grey[200]),
+    BottomNavigationBarItem(
+        icon: const Icon(Icons.list_alt_rounded),
+        label: "My Favs",
         backgroundColor: Colors.grey[200]),
     BottomNavigationBarItem(
         icon: const Icon(Icons.person),
@@ -38,9 +47,10 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> body = [
     const FrontScreen(),
     const Catalogue(),
-    const Text("Location"),
-    const Text("MyList"),
-    const Text("Profile"),
+    const LocationScreen(),
+    const Cart(),
+    const MyList(),
+    const Profile(),
   ];
 
   @override
