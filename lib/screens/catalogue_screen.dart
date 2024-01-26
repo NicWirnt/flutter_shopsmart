@@ -38,6 +38,7 @@ class _CatalogueState extends State<Catalogue> {
             child: Container(
               color: Colors.white,
               child: Row(
+                mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: topMenus.map((curMenu) {
                   return Padding(

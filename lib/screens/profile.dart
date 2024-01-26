@@ -53,7 +53,8 @@ class _ProfileState extends State<Profile> {
                     const Divider()
                   ],
                 );
-              })
+              }),
+          ElevatedButton(onPressed: () {}, child: const Text("Logout"))
         ],
       ),
     );

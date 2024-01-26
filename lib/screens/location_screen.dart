@@ -67,6 +67,7 @@ class _LocationScreenState extends State<LocationScreen> {
                       position: _currentPosition,
                     )
                   },
+                  
                 ),
         ),
       ],

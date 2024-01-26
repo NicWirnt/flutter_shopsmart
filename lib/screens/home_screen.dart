@@ -24,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.grey[200]),
     BottomNavigationBarItem(
         icon: const Icon(Icons.menu_book_rounded),
-        label: "Catalogue",
+        label: "Products",
         backgroundColor: Colors.grey[200]),
     BottomNavigationBarItem(
         icon: const Icon(Icons.location_on_outlined),

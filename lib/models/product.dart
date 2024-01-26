@@ -5,7 +5,8 @@ class Product {
   final String path;
   final String weight;
   final int priceColes;
+  final String category;
 
-  Product(
-      this.title, this.priceWollies, this.priceColes, this.path, this.weight);
+  Product(this.title, this.priceWollies, this.priceColes, this.path,
+      this.weight, this.category);
 }

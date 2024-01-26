@@ -16,7 +16,7 @@ class _FrontScreenState extends State<FrontScreen> {
   late List<Product> productList;
   late List<String> productNames;
   final List<String> _results = [];
-  final String _curUser = "John Doe";
+  final String _curUser = "Jessica Walker";
 
   @override
   void initState() {
@@ -58,20 +58,23 @@ class _FrontScreenState extends State<FrontScreen> {
           ),
           const SizedBox(height: 8),
           SizedBox(
-            child: TextField(
-              onChanged: _handleSearch,
-              decoration: InputDecoration(
-                contentPadding: const EdgeInsets.all(1),
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.0)),
-                hintText: "Search product . . .",
-                hintStyle: GoogleFonts.poppins(
-                    color: const Color(0xffb2b2b2),
-                    fontSize: 20,
-                    fontWeight: FontWeight.w400,
-                    letterSpacing: 0.5,
-                    decorationThickness: 6),
-                prefixIcon: const Icon(Icons.search),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                onChanged: _handleSearch,
+                decoration: InputDecoration(
+                  contentPadding: const EdgeInsets.all(1),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0)),
+                  hintText: "Search product . . .",
+                  hintStyle: GoogleFonts.poppins(
+                      color: const Color(0xffb2b2b2),
+                      fontSize: 20,
+                      fontWeight: FontWeight.w400,
+                      letterSpacing: 0.5,
+                      decorationThickness: 6),
+                  prefixIcon: const Icon(Icons.search),
+                ),
               ),
             ),
           ),
